@@ -1,0 +1,33 @@
+name: SlimefunExampleAddon
+version: '1.0.0'
+main: com.example.slimefunaddon.ExampleAddon
+api-version: '1.21'
+description: 'Example addon for Slimefun 5 demonstrating various features including custom machines, generators, and items'
+author: ExampleAuthor
+website: https://github.com/example/slimefun-example-addon
+
+depend:
+  - Slimefun
+
+commands:
+  exampleaddon:
+    description: Main command for Example Addon
+    usage: /exampleaddon [help|info|reload]
+    permission: exampleaddon.command
+    permission-message: You don't have permission to use this command!
+
+permissions:
+  exampleaddon.*:
+    description: Gives access to all Example Addon permissions
+    children:
+      exampleaddon.command: true
+      exampleaddon.admin: true
+    default: op
+  
+  exampleaddon.command:
+    description: Allows usage of /exampleaddon command
+    default: true
+  
+  exampleaddon.admin:
+    description: Allows administrative functions
+    default: op
